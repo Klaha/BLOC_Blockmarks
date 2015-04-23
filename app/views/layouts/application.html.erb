@@ -7,8 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Blocmarks</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <% if flash[:notice] %>
+    <div class="light-green accent-1 center-align" id="success">
+      <span><%= flash[:notice] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
+    </div>
+  <% elsif flash[:error] %>
+    <div class="red lighten-3 center-align" id="error">
+      <span><%= flash[:error] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="yellow accent-4 center-align" id="alert">
+      <span><%= flash[:alert] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
+    </div>
+  <% end %>
+  
+  <div class="row">
+    <div class="col s12 center-align">
+        <h1>Blocmarks</h1>
+    </div>
+  </div>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
