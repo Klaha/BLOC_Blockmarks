@@ -24,3 +24,6 @@ gem 'materialize-sass'
 
 # User Authentication
 gem 'devise'
+
+# Sensitive Data
+gem 'figaro', '1.0'
