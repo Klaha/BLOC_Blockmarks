@@ -12,6 +12,6 @@ class IncomingController < ApplicationController
     # magic here. 
 
     # Assuming all went well. 
-    head 404
+    head 200
   end
 end
