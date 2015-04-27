@@ -8,8 +8,7 @@ class IncomingController < ApplicationController
     # to get a sense of what you're dealing with.
     puts "INCOMING PARAMS HERE: #{params}"
     user = params[:sender]
-    
-    puts "culo"
+
     puts "#{user}"
     # You put the message-splitting and business
     # magic here. 
