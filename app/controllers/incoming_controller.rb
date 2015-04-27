@@ -7,13 +7,23 @@ class IncomingController < ApplicationController
     # Take a look at these in your server logs
     # to get a sense of what you're dealing with.
     puts "INCOMING PARAMS HERE: #{params}"
-    user = params[:sender]
+    
+    # user = params[:sender]
+    # url = params["body-plain"]
+    # puts "#{user}"
+    # puts "#{url}"
+    
+    user = User.find_by(email: params[:sender])
     url = params["body-plain"]
-
-    puts "#{user}"
-    puts "#{url}"
-    # You put the message-splitting and business
-    # magic here. 
+    
+    if user.present?
+      topic = user.topics.find_or_create_by(title: params[:subject])
+      topic.bookmarks.create(url: url)
+    else
+      user = User.new(name: name , email: email, password: "helloworld", password_confirmation: "helloworld") 
+      user.skip_confirmation!
+      user.save!
+    end
 
     # Assuming all went well. 
     head 200
