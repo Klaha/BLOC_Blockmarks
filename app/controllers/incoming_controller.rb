@@ -7,7 +7,7 @@ class IncomingController < ApplicationController
     # Take a look at these in your server logs
     # to get a sense of what you're dealing with.
     puts "INCOMING PARAMS HERE: #{params}"
-    user = totona[:sender]
+    user = params[:sender]
     
     puts "culo"
     puts "#{user}"
