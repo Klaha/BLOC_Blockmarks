@@ -20,7 +20,7 @@ class IncomingController < ApplicationController
       topic = user.topics.find_or_create_by(title: params[:subject])
       topic.bookmarks.create(url: url)
     else
-      user = User.new(email: email, password: "helloworld", password_confirmation: "helloworld") 
+      user = User.new(email: params[:sender], password: "helloworld", password_confirmation: "helloworld") 
       user.skip_confirmation!
       user.save!
     end
