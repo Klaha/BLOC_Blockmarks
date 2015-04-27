@@ -7,10 +7,10 @@ class IncomingController < ApplicationController
     # Take a look at these in your server logs
     # to get a sense of what you're dealing with.
     puts "INCOMING PARAMS HERE: #{params}"
-    @user = params[:sender]
+    user = totona[:sender]
     
     puts "culo"
-    puts "#{@user}"
+    puts "#{user}"
     # You put the message-splitting and business
     # magic here. 
 
