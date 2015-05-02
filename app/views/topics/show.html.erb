@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col s12 center-align">
+    <h3><%= @topic.title %></h3>
+    <%= link_to topic_path(@topic), method: :delete, class: 'waves-effect waves-light btn red', data: { confirm: "Are you sure?" } do %>
+      Delete Topic
+      <i class="mdi-action-delete"></i>
+    <% end %>
+    
+    <% @bookmarks.each do |bookmark| %>
+      <h5><%= bookmark.url %></h5>
+    <% end %>
+  </div>
+</div>
