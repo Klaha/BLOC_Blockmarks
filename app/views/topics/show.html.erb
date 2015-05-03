@@ -5,9 +5,16 @@
       Delete Topic
       <i class="mdi-action-delete"></i>
     <% end %>
+    <%= link_to new_topic_bookmark_path(@topic), class: 'waves-effect waves-light btn blue' do %>
+      Add Bookmark
+      <i class="mdi-action-thumb-up"></i>
+    <% end %>
     
     <% @bookmarks.each do |bookmark| %>
       <h5><%= bookmark.url %></h5>
+      <%= link_to topic_bookmark_path(@topic, bookmark), method: :delete, data: { confirm: "Are you sure?" } do %>
+        Delete
+      <% end %>
     <% end %>
   </div>
 </div>
