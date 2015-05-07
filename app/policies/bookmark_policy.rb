@@ -1,0 +1,2 @@
+class BookmarkPolicy < TopicPolicy
+end

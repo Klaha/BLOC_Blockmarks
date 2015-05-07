@@ -11,21 +11,26 @@ class TopicsController < ApplicationController
   
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def create
     @user = current_user
     @topic = @user.topics.build(params.require(:topic).permit(:title))
-    @topic.save
+    authorize @topic
     
+    @topic.save
     redirect_to @topic
   end
   
   def update
+    authorize @topic
   end
   
   def destroy
     @topic = Topic.find(params[:id])
+    authorize @topic
+    
     @topic.destroy
     
     redirect_to topics_path

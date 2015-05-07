@@ -1,11 +1,14 @@
 <div class="row">
   <div class="col s12 center-align">
     <h3>Topics:</h3>
-    <%= link_to new_topic_path, class: 'waves-effect waves-light btn center-align' do %>
-      Create Topic
+    <% if policy(Topic.new).create? %>
+      <%= link_to new_topic_path, class: 'waves-effect waves-light btn center-align' do %>
+        Create Topic
+      <% end %>
     <% end %>
     <% @topics.each do |topic| %>
       <h4><%= link_to topic.title, topic_path(topic) %></h4>
+      <b>Created by: <%= topic.user.name %></b>
     <% end %>
   </div>
 </div>
