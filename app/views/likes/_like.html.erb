@@ -1,0 +1,13 @@
+<div>
+  <% if like = current_user.liked(bookmark) %>
+    <%= link_to [bookmark, like], class: 'btn btn-danger', method: :delete do %>
+      Unlike
+      <i class="mdi-action-favorite"></i>
+    <% end %>
+  <% else %>
+    <%= link_to [bookmark, Like.new], class: 'btn btn-primary', method: :post do %>
+      Like
+      <i class="mdi-action-favorite-outline"></i>
+    <% end %>
+  <% end %>
+</div>

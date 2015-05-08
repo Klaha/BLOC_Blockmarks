@@ -22,6 +22,9 @@
           Delete
         <% end %>
       <% end %>
+      <% if policy(Like.new).create? %>
+        <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+      <% end %>
     <% end %>
   </div>
 </div>

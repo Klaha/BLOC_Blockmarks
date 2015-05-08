@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   
   resources :topics do
     resources :bookmarks
-  end 
+  end
+  
+  resources :bookmarks, only: [] do
+    resources :likes, only: [:new, :create, :destroy]
+  end
   
 end

@@ -1,4 +1,8 @@
 class TopicPolicy < ApplicationPolicy
+  
+  def new?
+    create?
+  end
 
   def create?
     user.present?

@@ -1,0 +1,2 @@
+class LikePolicy < TopicPolicy
+end
